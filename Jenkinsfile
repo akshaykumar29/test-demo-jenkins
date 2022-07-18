@@ -48,7 +48,7 @@ pipeline {
             steps{
                 script{
                      def dockerRun = "docker run -d --name ${JOB_NAME} -p 5000:5000 ${image}"
-                     sshagent (['prod_server']){
+                     sshagent (['ssh-moka']){
                      sh "ssh -o StrictHostKeyChecking=no ubuntu@13.233.34.41 ${dockerRun}"
                      
                     }
